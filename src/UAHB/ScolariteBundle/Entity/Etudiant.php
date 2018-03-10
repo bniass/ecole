@@ -98,7 +98,7 @@ class Etudiant
 
     /**
      * @ORM\OneToOne(targetEntity="UAHB\ScolariteBundle\Entity\Personne", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $tuteur;
 
@@ -120,48 +120,6 @@ class Etudiant
      * @ORM\OneToOne(targetEntity="UAHB\ScolariteBundle\Entity\Image", cascade={"persist"})
      */
     private $image;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="langue1", type="string", length=30, nullable=true)
-     */
-    private $langue1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="niveauLangue1", type="string", length=20, nullable=true)
-     */
-    private $niveauLangue1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="langue2", type="string", length=30, nullable=true)
-     */
-    private $langue2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="niveauLangue2", type="string", length=20, nullable=true)
-     */
-    private $niveauLangue2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="langue3", type="string", length=30, nullable=true)
-     */
-    private $langue3;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="niveauLangue3", type="string", length=20, nullable=true)
-     */
-    private $niveauLangue3;
 
     /**
      * @ORM\OneToOne(targetEntity="UAHB\ScolariteBundle\Entity\Pays")
