@@ -1,0 +1,77 @@
+<?php
+
+namespace UAHB\ScolariteBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Departement
+ *
+ * @ORM\Table(name="departement")
+ * @ORM\Entity(repositoryClass="UAHB\ScolariteBundle\Repository\DepartementRepository")
+ */
+class Departement
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=50)
+     */
+    private $libelle;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UAHB\ScolariteBundle\Entity\Faculte", inversedBy="departements")
+     * @ORM\JoinColumn(nullable=false)
+    */
+    private $faculte;
+
+    /**
+     * @ORM\OneToMany(targetEntity="UAHB\ScolariteBundle\Entity\Filiere", mappedBy="departement")
+     */
+    private $filieres;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set libelle
+     *
+     * @param string $libelle
+     *
+     * @return Departement
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * Get libelle
+     *
+     * @return string
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+}
+
